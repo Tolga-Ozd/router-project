@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom/dist";
 
 const People = () => {
   const [people, setPeople] = useState([]);
+  const navigate = useNavigate
 
   const getPeople = () => {
     fetch("https://reqres.in/api/users")
