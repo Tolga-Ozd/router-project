@@ -1,9 +1,9 @@
-import About from "../components/About";
-import Courses from "../components/Courses";
+import About from '../components/About';
+import Courses from '../components/Courses';
 
 const Home = () => {
   return (
-    <div className="p-3">
+    <div>
       <About />
       <Courses />
     </div>
