@@ -11,6 +11,8 @@ import FullStack from "../pages/FullStack"
 import Aws from "../pages/Aws"
 import Next from "../pages/Next"
 import React from "../pages/React"
+import PraviteRouter from "./PraviteRouter"
+import Login from "../pages/Login"
 
 
 
@@ -20,18 +22,21 @@ function AppRouter() {
     <Nav />
     <Routes>
       <Route path="/" element={<Home />} /> 
-      <Route path="/people" element={<People />} /> 
-      <Route path="/people/:id" element={<PersonelDetail />} />
+      <Route element= {<PraviteRouter />}>
+        <Route path="/people" element={<People />} /> 
+        <Route path="/people/:id" element={<PersonelDetail />} />
+      </Route>
       <Route path="/paths" element={<Paths />}>
           <Route index element={<FullStack />} />
-          <Route path="fullstack" element={<FullStack />}>
-            <Route index element={<React />} />
-            <Route path="react" element={<React />} />
-            <Route path="next" element={<Next />} />
+            <Route path="fullstack" element={<FullStack />} >
+              <Route index element={<React />} />
+              <Route path="react" element={<React />} />
+              <Route path="next" element={<Next />} />
           </Route>
           <Route path="aws" element={<Aws />} />
-        </Route>
+      </Route>
       <Route path="/contact" element={<Contact />} /> 
+      <Route path="/login" element={<Login />} /> 
       <Route path="*" element={<NotFound />} /> 
     </Routes>
     <Footer />
