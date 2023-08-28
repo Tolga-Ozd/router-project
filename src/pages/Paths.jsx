@@ -3,8 +3,8 @@ import { Link, Outlet } from 'react-router-dom'
 
 const Paths = () => {
   return (
-    <div>
-         <h1>
+    <div className='container mt-4 '>
+         <h1 className='text-danger'>
         Online IT Courses to Become a Qualified IT Professional with Clarusway
       </h1>
 

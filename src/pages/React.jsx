@@ -2,8 +2,8 @@
 
 const React = () => {
   return (
-    <div>React</div>
+    <div className="fs-2 text-danger">React</div>
   )
 }
 
-export default React
+export default React;

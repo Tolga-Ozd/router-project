@@ -17,7 +17,7 @@ const FullStack = () => {
         <button className="btn btn-outline-success mt-4">Learn More</button>
       </div>
       <div className="mt-4">
-        <Link to="reactt" className="btn btn-success w-50">
+        <Link to="react" className="btn btn-success w-50">
           React
         </Link>
         <Link to="next" className="btn btn-warning w-50">

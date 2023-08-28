@@ -13,6 +13,7 @@ import Next from "../pages/Next"
 import React from "../pages/React"
 
 
+
 function AppRouter() {
   return (
     <>
@@ -25,6 +26,7 @@ function AppRouter() {
           <Route index element={<FullStack />} />
           <Route path="fullstack" element={<FullStack />}>
             <Route index element={<React />} />
+            <Route path="react" element={<React />} />
             <Route path="next" element={<Next />} />
           </Route>
           <Route path="aws" element={<Aws />} />

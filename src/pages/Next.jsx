@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 const Next = () => {
   return (
-    <div>Next</div>
+    <div className="fs-2 text-danger">Next</div>
   )
 }
 
