@@ -13,16 +13,20 @@ import Next from "../pages/Next"
 import React from "../pages/React"
 import PraviteRouter from "./PraviteRouter"
 import Login from "../pages/Login"
+import { useState } from "react"
 
 
 
 function AppRouter() {
+
+  const [user , setUser] = useState("")
+
   return (
     <>
     <Nav />
     <Routes>
       <Route path="/" element={<Home />} /> 
-      <Route element= {<PraviteRouter />}>
+      <Route element= {<PraviteRouter user = {user} />}>
         <Route path="/people" element={<People />} /> 
         <Route path="/people/:id" element={<PersonelDetail />} />
       </Route>
@@ -36,7 +40,7 @@ function AppRouter() {
           <Route path="aws" element={<Aws />} />
       </Route>
       <Route path="/contact" element={<Contact />} /> 
-      <Route path="/login" element={<Login />} /> 
+      <Route path="/login" element={<Login setUser={setUser} />} /> 
       <Route path="*" element={<NotFound />} /> 
     </Routes>
     <Footer />

@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({setUser}) => {
 
     const [email , setEmail] = useState("")
     const [password , setPassword] = useState("")
+    const navigate= useNavigate()
 
     const handleSubmit = (e)=> {
         e.preventDefault()
-        
+        setUser ({email, password})
+        navigate("/people")
     }
 
   return (
@@ -20,7 +23,7 @@ const Login = () => {
             className="form-control" 
             id="exampleInputEmail1" 
             aria-describedby="emailHelp" 
-            onChange={(e)=>e.target.value}
+            onChange={(e)=>setEmail(e.target.value)}
             />
             </div>
 
@@ -31,7 +34,7 @@ const Login = () => {
             <input type="password"
              className="form-control" 
              id="exampleInputPassword1"
-             onChange={(e)=>e.target.value}
+             onChange={(e)=>setPassword(e.target.value)}
              />
             </div>
            
