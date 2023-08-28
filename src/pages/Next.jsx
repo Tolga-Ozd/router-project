@@ -2,7 +2,7 @@ import React from 'react'
 
 const Next = () => {
   return (
-    <div>NextJs</div>
+    <div>Next</div>
   )
 }
 
