@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation, useParams } from 'react-router-dom/dist'
+import NotFound from "./NotFound" 
+import Spinner from "../img/Spinner-2.gif" 
 
 const PersonelDetail = () => {
   // const {state:person} = useLocation()
@@ -8,18 +10,28 @@ const PersonelDetail = () => {
   const {id} = useParams()
   console.log(id) 
   const [person ,setPerson] = useState({})
-
+  const [error, setError] = useState(false);
+  const [loading , setLoading] = useState(true);
 
   const getPerson = ()=>{
     axios(`https://reqres.in/api/users/${id}`)
     .then((res)=>setPerson(res.data.data))
-    .catch((err)=>console.log(err))
-  }
+    .catch((err)=>{console.log(err)
+    setError(true)
+    }).finally(()=> setLoading(false))
+  }  
 
   useEffect(() => {
     getPerson()
   }, [])
   
+  if(error) {
+    return <NotFound />
+  }else if(loading){
+    return(
+      <div className="text-center mt-4"><img src={Spinner} alt="spinner" /></div>
+    )
+  }
 
   // console.log(person)
   return (
@@ -39,7 +51,6 @@ const PersonelDetail = () => {
         </button>
       </div>
     </div>
-    const getPeople = () 
    </div>
   )
 }
