@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom/dist";
 import logo from "../img/logo.png";
 
-function Nav() {
+function Nav({user , setUser}) {
+
+  const handleQuit = ()=>{
+    setUser("")
+  }
+
   return (
     <nav className="navbar navbar-expand-md navbar-light">
       <div className="container-fluid">
@@ -40,6 +45,19 @@ function Nav() {
                 Contact
               </Link>
             </li>
+           {
+            user ?  <li className="nav-item">
+            <Link to="/login" className="nav-link" aria-current="page"
+            onClick={handleQuit}
+            >
+              Logout
+            </Link>
+          </li> : <li className="nav-item">
+              <Link to="/login" className="nav-link" aria-current="page">
+                Login
+              </Link>
+            </li>
+           }
           </ul>
         </div>
       </div>
